@@ -9,6 +9,7 @@ public class TableElementBuilder {
 
     private final String title;
     private Predicate predicate;
+    private IStrategy strategy;
 
     public TableElementBuilder(String title) {
         this.title = title;
@@ -20,6 +21,7 @@ public class TableElementBuilder {
     }
 
     public TableElementBuilder calcStrategy(IStrategy strategy) {
+        this.strategy = strategy;
         return this;
     }
 
@@ -28,6 +30,6 @@ public class TableElementBuilder {
     }
 
     public TableElement create() {
-        return new TableElement(title, predicate);
+        return new TableElement(title, predicate, strategy);
     }
 }

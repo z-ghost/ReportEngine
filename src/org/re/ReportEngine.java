@@ -36,8 +36,10 @@ public class ReportEngine {
 
             IStrategy strategy = this.strategy;
             List withColumnFilter = (List) load.stream().filter(column.getPredicate()).collect(Collectors.toList());
+            strategy = column.getStrategy() != null ? column.getStrategy() : strategy;
             for (int rowNumber = 0; rowNumber < rows.length; rowNumber++) {
                 ITableElement row = rows[rowNumber];
+                strategy = row.getStrategy() != null ? row.getStrategy() : strategy;
                 List result = (List) withColumnFilter.stream().filter(row.getPredicate()).collect(Collectors.toList());
                 report.addCell(new Coord(colNumber, rowNumber), strategy.calc(result));
             }

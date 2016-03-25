@@ -10,4 +10,6 @@ public interface ITableElement<T> {
     String getTitle();
 
     Predicate getPredicate();
+
+    IStrategy getStrategy();
 }
