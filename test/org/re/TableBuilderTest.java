@@ -3,7 +3,6 @@ package org.re;
 import org.junit.Assert;
 import org.junit.Before;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -17,8 +16,7 @@ public class TableBuilderTest {
     @Before
     public void createData()
     {
-        data = Arrays.asList(new Day(true, 1), new Day(false, 1), new Day(true, 1),  new Day(true, 1),  new Day(false, 1), new Day(true, 1), new Day(true, 1),
-                             new Day(true, 2), new Day(false, 2), new Day(false, 2), new Day(false, 2), new Day(false, 2), new Day(true, 2), new Day(true, 2));
+        data = new WeatherBuilder().week(5).week(3).getList();
     }
 
     /**
@@ -38,7 +36,7 @@ public class TableBuilderTest {
                 .columns(
                         /* TODO: java-html-dsl like
                         TableElements.custom(name -> "Sunny",
-                                       predicate -> Day::::isSunny,
+                                       predicate -> Day::isSunny,
                                        calc -> Strategies.count(),
                                        casClass -> "yellow")*/
                         TableElements.builder("Sunny")

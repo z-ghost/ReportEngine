@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -17,8 +16,8 @@ public class SimpleReportTest {
     @Before
     public void createData()
     {
-        data = Arrays.asList(new Day(true, 1), new Day(false, 1), new Day(true, 1),  new Day(true, 1),  new Day(false, 1), new Day(true, 1), new Day(true, 1),
-                             new Day(true, 2), new Day(false, 2), new Day(false, 2), new Day(false, 2), new Day(false, 2), new Day(true, 2), new Day(true, 2));
+
+        data = new WeatherBuilder().week(5).week(3).getList();
     }
 
     /**

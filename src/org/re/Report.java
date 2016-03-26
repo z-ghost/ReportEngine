@@ -27,4 +27,12 @@ public class Report {
     public void setRows(List<String> rows) {
         this.rows = rows;
     }
+
+    public List<String> getColumns() {
+        return columns;
+    }
+
+    public List<String> getRows() {
+        return rows;
+    }
 }
